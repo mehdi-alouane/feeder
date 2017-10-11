@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	each feed in feeds
+		.card
+			p.__title= feed.title
+			a(href='' + feed.link).__link Magnet 
+				i.fa.fa-magnet

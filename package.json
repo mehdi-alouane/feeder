@@ -1,0 +1,33 @@
+{
+  "name": "horrible-subs-rss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./bin/dev.js",
+    "build:sass": "gulp sass"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "http": "^0.0.0",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "feedme": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "nodemon": "^1.12.1",
+    "plumber": "^0.4.8"
+  }
+}
