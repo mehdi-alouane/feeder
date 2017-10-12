@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import axios from 'axios'
+/* eslint-disable */
+//import axios from 'axios'
+import parser from 'rss-parser-browser'
 export default {
 	name: 'Home',
 	data: () => ({
@@ -15,15 +17,12 @@ export default {
 
 	methods: {
 		getLink: () => {
-			axios({
-				method: 'GET',
-				url: 'http://horriblesubs.info/rss.php?res=all',
-				headers: {
-					'Access-Control-Allow-Origin': '*'
-				}
+			parser.parseURL('http://horriblesubs.info/rss.php?res=720', (err, parsed) => {
+				console.log(parsed.feed.title)
+				parsed.feed.entries.forEach(function(entry) {
+					console.log(entry.title + ':' + entry.link)
+				})
 			})
-			.then(response => console.log(response))
-			.catch(err => console.log(err))
 		}
 	}
 }
