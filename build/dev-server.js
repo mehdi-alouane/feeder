@@ -12,6 +12,7 @@ const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
+const cors = require('cors')
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port
@@ -23,6 +24,8 @@ const proxyTable = config.dev.proxyTable
 
 const app = express()
 const compiler = webpack(webpackConfig)
+
+
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
@@ -46,6 +49,7 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // enable hot-reload and state-preserving
 // compilation error display
 app.use(hotMiddleware)
+app.use(cors())
 
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
